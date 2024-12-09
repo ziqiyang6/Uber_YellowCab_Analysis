@@ -1,6 +1,6 @@
 CREATE TABLE if NOT EXISTS yellowcab
 (
-    id                  UUID        NOT NULL PRIMARY KEY,
+    id                  INTEGER     PRIMARY KEY,
     pickup_time         TIMESTAMP   NOT NULL,
     dropoff_time        TIMESTAMP   NOT NULL,
     passenger_num       INTEGER     NOT NULL,
@@ -8,12 +8,14 @@ CREATE TABLE if NOT EXISTS yellowcab
     latitude_dropoff    FLOAT       NOT NULL,   
     longitude_dropoff   FLOAT       NOT NULL, 
     latitude_pickup     FLOAT       NOT NULL, 
-    longitude_pickup    FLOAT       NOT NULL
+    longitude_pickup    FLOAT       NOT NULL,
+    UNIQUE(pickup_time, dropoff_time, passenger_num, trip_distance, latitude_dropoff,
+    longitude_dropoff, latitude_pickup, longitude_pickup )
 );
 
 CREATE TABLE if NOT EXISTS uber
 (
-    id                  UUID        NOT NULL PRIMARY KEY,
+    id                  INTEGER     PRIMARY KEY,
     pickup_time         TIMESTAMP   NOT NULL,
     dropoff_time        TIMESTAMP   NOT NULL,
     trip_time           FLOAT     NOT NULL,
@@ -21,7 +23,9 @@ CREATE TABLE if NOT EXISTS uber
     latitude_dropoff    FLOAT       NOT NULL,   
     longitude_dropoff   FLOAT       NOT NULL, 
     latitude_pickup     FLOAT       NOT NULL, 
-    longitude_pickup    FLOAT       NOT NULL
+    longitude_pickup    FLOAT       NOT NULL,
+    UNIQUE(pickup_time, dropoff_time, trip_time, trip_distance, latitude_dropoff,
+    longitude_dropoff, latitude_pickup, longitude_pickup )
 );
 
 CREATE TABLE if NOT EXISTS hourly_weather
