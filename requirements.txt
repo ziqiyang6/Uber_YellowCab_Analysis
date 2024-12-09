@@ -1,0 +1,8 @@
+beautifulsoup4==4.12.2
+requests==2.31.0
+pandas==2.1.1
+geopandas==0.13.2
+pyarrow==13.0.0
+sqlite3==0.0.1  
+statistics==1.0.3.5
+datetime==5.2
